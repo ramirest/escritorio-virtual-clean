@@ -1,0 +1,823 @@
+﻿
+
+
+
+.quebra
+{
+	clear: both;
+}
+
+img 
+{
+    border-width:0px;    
+}
+
+* {
+
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+
+.content_arvore
+{
+ min-width:800px;
+ }
+
+/*recurso onde fica pontos e cadastros*/
+
+
+
+
+
+.cor_light {
+
+    background-color: #387a9a;
+}
+
+.dimi2
+{ font-size: 50px; line-height: 75px!important;}
+
+
+.dimi3
+{padding-top: 5px!important;}
+
+
+.dimi4
+{   width: 50%;
+    float: left;
+    display: block;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;}
+
+
+.dimi44
+{   width: 50%;
+    float: left;
+    display: block;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;}
+
+
+.dimi5
+{padding: 5px 0 6px!important;}
+
+
+.dimie
+{ width: 48.666667%;
+    float:left;}
+
+
+
+
+.dimid
+{ width: 48.666667%;
+    float: right;}
+
+
+.cor_top {
+
+
+    background-color: #f76163;
+}
+
+
+.btn_cad01
+{
+    color: #fff!important;
+    margin-top: -1px!important;
+}
+
+
+
+
+@media only screen and (min-width: 1px) and (max-width: 850px){
+
+
+    .dimi4
+    {   width: 34%;
+        padding-left: 3px;
+        font-size: 13px;
+    }
+
+
+    .dimi44
+    {   margin-left: 75px;
+        font-size: 13px;
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 34%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*rede esquerda*/
+
+.pr
+{
+    float: left; width: 100%; padding-right:20px;  text-align:center;
+}
+
+
+.pr_ind img
+
+{
+     width:11%;
+}
+
+
+
+.pr_ind .r2ad_ind, a:hover
+{
+    /*opacity:0.40;*/
+    -moz-opacity: 0.40;
+    filter: alpha(opacity=40);
+}
+
+
+
+
+/*rede esquerda*/
+
+.re 
+{
+    float: left; width: 50%; padding-right:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*rede direita*/
+
+
+.rd
+{
+float: left; width: 50%; padding-right:20px;
+}
+
+
+
+
+
+/*rede 1*/
+
+.r1ad 
+{
+     width: 100%; margin: 0 auto; position: relative;
+}
+
+.r1ad_ind
+{
+float: left; width: 100%; padding:5px; text-align:center;
+
+}
+.r1ad_ind img
+
+{
+     width:19%;
+}
+
+
+
+
+
+
+/*seta1*/
+.seta1 
+{
+    width: 100%; margin: 0 auto; position: relative;
+}
+
+.seta1_ind
+{
+float: left; width: 100%; padding:5px; text-align:center;
+}
+
+.seta1_ind img
+{
+width: 13%
+}
+
+
+
+/*seta2*/
+.seta2 
+{
+   width: 100%; margin: 0 auto; position: relative; margin-top:-20px;
+}
+
+.seta2_ind
+{
+ float: left; width: 50%; padding:5px; text-align:center;
+}
+
+.seta2_ind img
+{
+width: 16%; 
+}
+
+
+/*seta3*/
+.seta3 
+{
+   width: 100%; margin: 0 auto; position: relative;
+}
+
+.seta3_ind
+{
+ float: left; width: 25%; padding:5px; text-align:center;
+}
+
+.seta3_ind img
+{
+width: 23%;
+}
+
+
+
+
+
+/*rede 2*/
+
+.r2ad {
+     width: 100%; margin: 0 auto; position: relative; margin-top:-20px;
+}
+
+.r2ad_ind
+{
+     float: left; width: 50%; padding:5px; text-align:center;
+}
+.r2ad_ind img{
+     width: 33%;
+}
+
+
+
+/*rede 3*/
+
+.r3ad {
+width: 100%; margin: 0 auto; position: relative; 
+}
+
+.r3ad_ind
+{
+    float: left; width: 25%; padding:5px; text-align:center;
+}
+.r3ad_ind img{
+     width: 57%
+}
+
+
+
+/*rede 4*/
+
+.r4ad {
+    margin-top:-10px;
+}
+
+.r4ad_ind
+{
+   float: left; width: 12.5%; padding:5px;
+}
+.r4ad_ind img{
+     width: 100%;
+    
+}
+
+
+
+
+div #qTip {
+    padding:3px 5px 3px 26px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid  #bebebe;
+    border-left: 3px solid  #ff34b3;
+    border:3px double #D8BFD8;
+
+    -webkit-transition: 0.5s;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 25px 10px / 10px 25px;
+    border-radius: 25px 10px / 10px 25px;
+
+
+    display: none;
+    background-image: url("../images/arvore/ic_inativo.png");
+    color: #7A378B;
+    font-family: comic sans ms;
+    font-size: 12px;
+    text-align: left;
+    position: absolute;
+    z-index: 1000;
+}
+
+
+
+
+
+
+.tooltip_tit
+{
+    font-size:13px;
+    font-family:Arial;
+    color:#2d3133;
+    text-decoration:none;
+    text-transform: uppercase;
+}
+
+
+.tooltip_grad
+{
+    font-size:15px;
+    font-family:Arial;
+    color:#2d3133;
+    text-decoration:none;
+}
+
+
+.tooltip_pts
+{
+    font-size:15px;
+    font-family:Arial;
+    color:#e94243;
+    text-decoration:none;
+    margin-top:3px;
+}
+
+
+.formata { /* esta classe � somente
+               para formatar a fonte */
+    font: 12px arial, verdana, helvetica, sans-serif;
+}
+
+.dcontexto
+{
+    width:150px;
+    height:150px;
+
+
+
+}
+a.dcontexto
+{
+    position:relative;
+    padding:0;
+    color:#039;
+    cursor:pointer;
+
+
+}
+
+a.dcontexto span{display: none;}
+a.dcontexto:hover span{
+    display:block;
+    position:absolute;
+    width:230px;
+    top:-10px;
+    right-align:justify;
+    left:-40px;
+    padding:5px 10px;
+    background-image:url('../images/arvore/fundo.png')!important;
+    background-repeat:repeat-y;
+    border-radius:10px;
+    box-shadow:0px 0px 10px 0px #a8a8a8;
+    z-index:5000!important;
+
+}
+
+
+.quebra
+{
+    clear: both;
+}
+
+.icone a
+{
+    float:left;
+    margin-left:202px;
+    margin-top:-58px;
+    width:94px;
+    height:82px;
+    position:absolute;
+    z-index:5000
+
+}
+
+.icone
+{
+    float:left;
+    margin-left:202px;
+    margin-top:-58px;
+    width:94px;
+    height:82px;
+    position:absolute;
+    z-index:5000
+
+}
+
+.sg
+{
+    background-image:url('../images/arvore/cliente.png')!important;
+    background-repeat:no-repeat;
+    width:94px;
+    height:82px;
+    z-index:5000
+}
+
+.bz
+{
+    background-image:url('../images/arvore/bronze.png')!important;
+    background-repeat:no-repeat;
+    width:94px;
+    height:82px;
+    z-index:5000
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*01/062014 correções arvore*/
+
+
+.but1_esq {
+    background-image:url('../images/arvore/menu_esquerda.png')!important;
+    box-sizing: border-box;
+    border: 0px;
+    text-decoration: blink!important;
+    color:#858889;
+    width:364px;
+    height:70px;
+    float:left;
+    font-size:15PX;
+}
+
+
+
+
+.pontos_esquerda
+{
+    float:left;
+    margin-left:70px;
+    width:100px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+
+.cadastro_esquerda
+{
+    float:left;
+    margin-left:58px;
+    width:120px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+.buts  {
+    float: left;
+    margin-left: 60px;
+    margin-top: 15px;
+
+}
+.but_inicio {
+    background-image: url('../images/arvore/bt_01.png')!important;
+    border: 0px;
+    text-decoration: blink!important;
+    color: #858889;
+    width: 116px;
+    height: 36px;
+    float: left;
+    font-size: 15PX;
+    padding: 9px 30px;
+}
+
+.but_voltar {
+    background-image: url('../images/arvore/bt_01.png')!important;
+    border: 0px;
+    text-decoration: blink!important;
+    color: #858889;
+    width: 116px;
+    height: 36px;
+    float: left;
+    font-size: 15PX;
+    padding: 9px 23px;
+    margin-left: 8px;
+}
+
+
+.but {
+    display: inline-block;
+    background-color: #00c8d7;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border: 0px;
+    text-decoration: blink!important;
+    color: white;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 25%;
+    margin-top: 5px;
+}
+
+
+.but, buts {
+    width: 150px!important;
+    margin-left: -16px!important;
+    font-size: 15px!important;
+}
+
+
+
+.but1_dir {
+    background-image:url('../images/arvore/menu_direita.png')!important;
+    box-sizing: border-box;
+    border: 0px;
+    text-decoration: blink!important;
+    color:#858889;
+    width:364px;
+    height:70px;
+    float:left;
+    font-size:15PX;
+    margin-left:50px;
+}
+
+
+
+
+.pontos_direita
+{
+    float:left;
+    margin-left:46px;
+    width:100px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+
+.cadastro_direita
+{
+    float: right;
+    width: 120px;
+    margin-top: 19px;
+    text-align: center;
+    margin-right: 63px;
+
+}
+
+
+/*arvore botoes de visualização quantidade de  cadastro*/
+
+
+.sive
+{
+    width: 100%;
+    float:left;
+}
+
+
+.viwer_num_cad
+{float: left; width: 40%;}
+
+.meio_viwer_num_cad
+{float: left; width: 20%; padding: 5px 10px 0px 10px; }
+
+
+.btn_viwer_num_cad
+{
+    padding: 4px 12px;
+}
+
+.text_viwer_num_cad_d
+{
+/*    float: left; position: absolute; font-size: 25px; color: #075570; margin-left: 140px; margin-top: 23px; display: block;*/
+    float: left; position: absolute; font-size: 25px; color: #075570; margin-left: 100px; margin-top: 23px; display: block;
+    width: 100%;
+}
+
+.text_viwer_num_cad_e
+{
+    /*float: left; position: absolute; font-size: 25px; color: #d63738; margin-left: 107px; margin-top: 23px; display: block;*/
+    float: left; position: absolute; font-size: 25px; color: #d63738; margin-left: 30px; margin-top: 23px; display: block;
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 1px) and (max-width: 1212px){
+
+
+    .text_viwer_num_cad_d
+    {
+        float: left; position: absolute; font-size: 25px; color: #075570; margin-left: 116px; margin-top: 18px; display: block;
+        width: 100%;
+    }
+
+    .text_viwer_num_cad_e
+    {
+        float: left; position: absolute; font-size: 25px; color: #d63738; margin-left: 68px; margin-top: 18px; display: block;
+        width: 100%;
+    }
+
+
+}
+
+
+
+@media only screen and (min-width: 1px) and (max-width: 1128px){
+
+
+    .text_viwer_num_cad_d
+    {
+        float: left; position: absolute; font-size: 25px; color: #075570; margin-left: 93px; margin-top: 12px; display: block;
+        width: 100%;
+    }
+
+    .text_viwer_num_cad_e
+    {
+        float: left; position: absolute; font-size: 25px; color: #d63738; margin-left: 43px; margin-top: 12px; display: block;
+        width: 100%;
+    }
+
+
+}
+
+
+
+@media only screen and (min-width: 1px) and (max-width: 1011px){
+
+
+    .text_viwer_num_cad_d
+    {
+        float: left; position: absolute; font-size: 18px; color: #075570; margin-left: 68px; margin-top: 12px; display: block;
+        width: 100%;
+    }
+
+    .text_viwer_num_cad_e
+    {
+        float: left; position: absolute; font-size: 18px; color: #d63738; margin-left: 26px; margin-top: 12px; display: block;
+        width: 100%;
+    }
+    .btn_viwer_num_cad
+    {
+        font-size: 13px;
+    }
+
+
+}
+
+
+
+@media only screen and (min-width: 1px) and (max-width: 554px){
+
+
+    .text_viwer_num_cad_d
+    {
+        float: left; position: absolute; font-size: 13px; color: #075570; margin-left: 50px; margin-top: 10px; display: block;
+        width: 100%;
+    }
+
+    .text_viwer_num_cad_e
+    {
+        float: left; position: absolute; font-size: 13px; color: #d63738; margin-left: 11px; margin-top: 10px; display: block;
+        width: 100%;
+    }
+
+
+}
+
+
+
+/*-----------------------04/06-----------------------  */
+
+.circle_leg
+{
+    border: solid 2px #ff9517;
+}
+
+.legenda
+{
+
+    float: left;
+    width: 67px;
+    text-align: center;
+
+}
+
+.didi
+{float: left;
+    width: 182px;
+}
+
+
+.btn-group-legenda
+{padding: 7px 23px;
+    border-radius: 4px;
+    margin-left: 5px!important;
+}
+
+.rededt
+{
+    border-radius: 0px!important;
+    min-width: 51px;
+}
+
+.conf01
+{
+    padding: 1px 5px;
+}
+
+.radio33
+{
+    margin-bottom: 3px!important;}
+
+.conf33
+{
+    width: 182px;
+}
+
+
+.conf34
+{background-color: #ecf0f1; width: 100%; max-width: 100%; padding: 15px 15px; font-size: 17px; color: #34495e; border: solid 1px #d3dcdd; border-radius: 4; float: left;}
+
+
+@media only screen and (min-width: 1px) and (max-width: 613px){
+
+
+
+.group-legenda
+{
+    margin-top: 5px;
+    border-color: #9c2223;
+    color: #fff;
+    background-color: #e94243;
+
+}
+
+    .btn-group-legenda
+    {
+        margin-left: 0px;
+    }
+
+
+}
+
+
+@media only screen and (min-width: 1px) and (max-width: 255px){
+
+    .rededts
+    {
+        height: 60px;
+
+    }
+
+
+
+}
+
+

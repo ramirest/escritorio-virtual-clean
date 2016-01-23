@@ -1,0 +1,456 @@
+
+
+* {
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	-ms-transition: all 300ms;
+	transition: all 300ms;
+}
+/*
+.block-content {
+	float:left;
+	width:100%;
+	}*/
+	
+.arvore	.block-border
+	{
+	    padding-left:0.833em;
+	    padding-right:51px;
+	    padding-bottom:0.833em;
+	    padding-top:0.833em;
+	}
+
+
+
+.arvore .block-content 
+{
+	float:left!important;	
+	width:100%;
+}
+
+
+.arvore
+{
+	width: 100%;
+	margin:0 auto;	
+	position:relative;  
+	min-height:100%;
+	height:500px;
+}
+
+.sub_arvore
+{
+	/*width: 1100px;*/
+	margin:0 auto;	
+	position:relative;
+	
+}
+
+
+
+/*colunas*/
+
+
+
+/*colunas principal (você)*/
+.coluna_voce
+   {
+       
+    float:left;
+    margin-left:25px;
+    margin-top:191px;
+
+    }
+
+.coluna_esq_2
+{    
+    margin-left:-55px;
+  }
+
+
+.coluna_esq_3
+{
+    margin-left:-25px;
+
+  
+  }
+
+
+.coluna_dir_2
+{    
+    margin-left:-55px;
+  }
+
+
+.coluna_dir_3
+{    
+    margin-left:-25px;
+  }
+  
+
+.esquerdo
+{
+    width:540px;
+    float:left;
+}
+
+
+.direito
+{
+    width:540px;
+    float:left;
+}
+
+
+
+/* ic01 -  nível 0 */
+.ic00 a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic00.png'); width:126px; height:126px; margin-left:480px; margin-top:30px;}
+.ic00 a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic00h.png')!important; width:126px; height:126px;  margin-left:480px;  margin-top:30px;}
+
+
+
+
+
+/* ic01 -  nível 1  -  esquerda e direita  */
+.ic01e a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic01e.png'); width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat;    }
+.ic01e a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic01h.png')!important; width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat; }
+
+.ic01d a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic01d.png'); width:273px; height:151px;  margin-left:137px;  float:left; background-repeat:no-repeat;    }
+.ic01d a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic01h.png')!important; width:273px; height:151px;  margin-left:137px;  float:left; background-repeat:no-repeat; }
+
+.ic01p a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic01p.png'); width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat;    }
+.ic01p a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic01h.png')!important; width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat; }
+
+.ic01i a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic01i.png'); width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat;    }
+.ic01i a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic01h.png')!important; width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat; }
+
+.ic01c a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic01c.png'); width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat;    }
+.ic01c a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic01h.png')!important; width:273px; height:151px;  margin-left:139px;  float:left; background-repeat:no-repeat; }
+
+
+/* ic02 -  nível 2  -  esquerda e direita */
+.ic02e a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic02e.png'); width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px; }
+.ic02e a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic02h.png')!important; width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px;}
+
+.ic02d a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic02d.png'); width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px;   }
+.ic02d a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic02h.png')!important; width:142px; height:124px;  margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px; }
+
+.ic02p a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic02p.png'); width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px; }
+.ic02p a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic02h.png')!important; width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px;}
+
+.ic02i a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic02i.png'); width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px;   }
+.ic02i a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic02h.png')!important; width:142px; height:124px;  margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px; }
+
+.ic02c a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic02c.png'); width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px; }
+.ic02c a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic02h.png')!important; width:142px; height:124px; margin-left:126px;  float:left; background-repeat:no-repeat; margin-top:12px;}
+
+
+/* ic03 -  nível 3  -  esquerda e direita */
+.ic03e a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic03e.png'); width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px; z-index:1!important; }
+.ic03e a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic03h.png')!important; width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:5000!important; }
+
+.ic03d a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic03d.png'); width:70px; height:109px; z-index:1;   margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:1!important;}
+.ic03d a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic03h.png')!important; width:70px; height:109px; z-index:5000;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;   z-index:5000!important;}
+
+.ic03p a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic03p.png'); width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:1!important; }
+.ic03p a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic03h.png')!important; width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:5000!important; }
+
+.ic03i a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic03i.png'); width:70px; height:109px;   margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:1!important;}
+.ic03i a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic03h.png')!important; width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:5000!important; }
+
+.ic03c a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic03c.png'); width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:1!important; }
+.ic03c a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic03h.png')!important; width:70px; height:109px;  margin-left:64px;  float:left; background-repeat:no-repeat;  margin-top:12px;  z-index:5000!important; }
+
+
+/* ic04 -  nível 4  -  esquerda e direita */
+.ic04e a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic04e.png'); width:52px; height:52px; margin-left:15px;  float:left; margin-top:12px;  z-index:1!important;  }
+.ic04e a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic04h.png')!important; width:52px; height:52px;  float:left;  margin-top:12px;  z-index:5000!important; }
+
+.ic04d a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic04d.png'); width:52px; height:52px;   margin-left:15px; float:left;  margin-top:12px;  z-index:1!important;   }
+.ic04d a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic04h.png')!important; width:52px; height:52px; float:left;  margin-top:12px;  z-index:5000!important; }
+
+.ic04p a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic04p.png'); width:52px; height:52px; margin-left:15px;  float:left; margin-top:12px; z-index:1px;  z-index:1!important;  }
+.ic04p a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic04h.png')!important; width:52px; height:52px;  float:left;  margin-top:12px;  z-index:1px;  z-index:5000!important; }
+
+.ic04i a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic04i.png'); width:52px; height:52px;   margin-left:15px; float:left;  margin-top:12px;  z-index:1!important;   }
+.ic04i a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic04h.png')!important; width:52px; height:52px; float:left;  margin-top:12px;   z-index:5000!important;}
+
+.ic04c a { cursor:pointer; display: inline-block; float:left; background-image:url('../images/arvore/ic04c.png'); width:52px; height:52px; margin-left:15px;  float:left; margin-top:12px;  z-index:1!important;  }
+.ic04c a:hover { cursor:pointer;  display: inline-block; background-image:url('../images/arvore/ic04h.png')!important; width:52px; height:52px;  float:left;  margin-top:12px;   z-index:5000!important;}
+
+
+
+
+
+
+
+
+.but1_esq {
+background-image:url("../images/arvore/menu_esquerda.png")!important;
+box-sizing: border-box;
+border: 0px;
+text-decoration: blink!important;
+color:#858889; 
+width:364px;
+height:70px;
+float:left;
+font-size:15px;
+margin-left:26px;
+}
+
+
+
+
+.pontos_esquerda
+{
+    float:left;
+    margin-left:70px;
+    width:100px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+
+.cadastro_esquerda
+{
+    float:left;
+    margin-left:123px;
+    width:120px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+
+
+
+
+.but1_dir {
+background-image:url('../images/arvore/menu_direita.png')!important;
+box-sizing: border-box;
+border: 0px;
+text-decoration: blink!important;
+color:#858889; 
+width:364px;
+height:70px;
+float:left;
+font-size:15PX;
+margin-left:50px;
+}
+
+
+
+
+.pontos_direita
+{
+    float:left;
+    margin-left:46px;
+    width:100px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+
+.cadastro_direita
+{
+    float:left;
+    margin-left:105px;
+    width:120px;
+    margin-top:19px;
+    text-align:center;
+}
+
+
+
+
+.buts
+{
+    float:left;
+    margin-left:60px;
+    margin-top:-1px;
+}
+
+.but, buts
+{
+     margin-left:2px!important; font-size:15px!important; padding: 7px 69px;
+margin-top: 5px;
+float: left;
+color: white;
+background-color:#c1413e;
+cursor:pointer;
+display:inline-block;
+}   
+
+
+.but_inicio {
+background-image:url('../images/arvore/bt_01.png')!important;
+border: 0px;
+text-decoration: blink!important;
+color:#858889; 
+width:79px;
+height:17px;
+float:left;
+font-size:15PX;
+padding:10px 17px;
+cursor:pointer;
+display:inline-block;
+}
+
+.but_voltar {
+background-image:url('../images/arvore/bt_01.png')!important;
+border: 0px;
+text-decoration: blink!important;
+color:#858889; 
+width:79px;
+height:17px;
+float:left;
+font-size:15PX;
+padding:10px 17px;
+margin-left:8px;
+cursor:pointer;
+display:inline-block;
+}
+
+
+.tooltip_tit
+{
+    font-size:13px;
+    font-family:Arial;
+    color:#2d3133;
+    text-decoration:none;
+	text-transform: uppercase;
+}
+
+
+.tooltip_grad
+{
+    font-size:15px;
+    font-family:Arial;
+    color:#2d3133;
+     text-decoration:none;
+}
+
+
+.tooltip_pts
+{
+    font-size:15px;
+    font-family:Arial;
+    color:#e94243;
+     text-decoration:none;
+     margin-top:3px;
+}
+
+
+ .formata { /* esta classe é somente 
+               para formatar a fonte */
+  font: 12px arial, verdana, helvetica, sans-serif; 
+  }
+  
+  .dcontexto
+  {
+      width:150px;
+      height:150px;
+      display:inline-block;
+      z-index:1;
+  }
+  a.dcontexto
+  {
+  position:relative; 
+  padding:0;
+  color:#039;
+  cursor:pointer;
+  
+  }
+
+  a.dcontexto span{display: none;}
+  a.dcontexto:hover span{ 
+  display:block;
+  position:absolute;
+  width:230px; 
+  top:-10px;
+  right-align:justify;
+  left:-40px;
+  padding:5px 10px;
+  background-image:url('../images/arvore/fundo.png')!important;
+  background-repeat:repeat-y;
+  border-radius:10px;
+  box-shadow:0px 0px 10px 0px #a8a8a8;
+  z-index:5000!important;
+
+  }
+  
+  
+  .quebra
+{
+	clear: both;
+}
+
+
+
+
+
+
+
+.icone a
+{
+	float:left;
+	margin-left:202px;
+	margin-top:-58px;
+	width:94px;
+	height:82px;
+	position:absolute;
+	z-index:5000
+
+}
+
+
+.icone
+{
+	float:left;
+	margin-left:202px;
+	margin-top:-58px;
+	width:94px;
+	height:82px;
+	position:absolute;
+	z-index:5000
+
+}
+
+.sg
+{
+background-image:url('../images/arvore/cliente.png')!important;
+background-repeat:no-repeat;
+width:94px;
+height:82px;
+z-index:5000
+}
+
+.bz
+{
+background-image:url('../images/arvore/bronze.png')!important;
+background-repeat:no-repeat;
+width:94px;
+height:82px;
+z-index:5000
+}
+
+
+
+/*modificação no bootstrep*/
+
+.col-sm-offset-3 
+{
+  margin-left: 0%;
+  webkit-box-sizing: border-box;
+}
+
+col-xs-6
+{
+	  webkit-box-sizing: border-box;
+}
+
+
+line-height:200%
