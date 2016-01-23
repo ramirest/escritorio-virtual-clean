@@ -1,0 +1,6 @@
+AddDefaultCharset ISO-8859-1
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /planos/
+
+</IfModule>

@@ -1,0 +1,371 @@
+<section class="grid_12">
+<div class="block-border">
+<?php 
+if($this->session->flashdata('msg') !== FALSE)
+	echo $this->session->flashdata('msg'); 
+
+echo form_open("adm/associados/criar", $this->config->item('form_style'));
+?>
+	<!-- Always visible control bar -->
+	<div id="control-bar" class="grey-bg clearfix"><div class="container_12">
+	
+		<div class="float-left">
+        	<?php echo anchor($this->config->item('btn_back_url').'/associados',
+							  $this->config->item('btn_back_txt').' de associados',
+							  $this->config->item('btn_back_attr'));
+			?>
+		</div>
+		
+		<div class="float-right" id="save-button"> 
+			<?php echo form_button(array('name'=>'enviar','id'=>'enviar','type'=>'submit','content'=>'<img src="'.$this->config->item('img').'icons/fugue/tick-circle.png"> Salvar')); ?>            
+		</div>
+			
+	</div></div>
+	<!-- End control bar -->
+
+<hr>
+<div class="col200pxL-left">
+	<h3>Cadastro de associados</h3>
+    <ul class="side-tabs js-tabs same-height">
+        <li><a href="#dados-pessoais" title="Dados Pessoais">Dados Pessoais</a></li>
+        <li><a href="#endereco" title="Endereço">Endereço</a></li>
+        <li><a href="#informacoes-contato" title="Informações para contato">Informações para contato</a></li>
+        <li><a href="#informacoes-conta" title="Informações da conta">Informações da conta</a></li>
+    </ul>
+</div>
+<div class="col200pxL-right">
+<div id="dados-pessoais" class="tabs-content">
+	<?php if($this->session->userdata('patrocinador') === FALSE):?>
+    <p>
+        <?php echo form_label('Patrocinador', 'patrocinador_txt'); ?>
+        <?php echo form_input(array('name'=>'patrocinador_txt', 'id'=>'patrocinador_txt'), set_value('patrocinador_txt')); ?>
+        <?php echo form_error('patrocinador_txt', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    <div id="response_patrocinador"></div>                          
+    </p>
+	<?php
+    else:
+        $ass = $this->session->userdata('patrocinador');
+        echo $ass->Nome."<br>";
+		echo anchor('adm/associados/criar/0', 'Trocar patrocinador');
+        echo form_hidden('patrocinador', $ass->aid);
+		echo "<br><br>";
+    endif;
+    ?>
+    <p>
+        <?php echo form_label('Em qual rede deseja posicionar o novo empresário?', 'rede_alocacao'); ?>
+        <?php 
+        $redes = array('AUTO'=>'Rede Menor', 'D'=>'Direita', 'E'=>'Esquerda');
+        echo form_dropdown('rede_alocacao', $redes, 'AUTO'); 					
+        ?>
+    </p>
+    <p>
+        <?php echo form_label('Tipo de cadastro', 'tp_cadastro'); ?>
+        <?php 
+        $tpcadastro = array('PF'=>'Pessoa Física', 'PJ'=>'Pessoa Jurídica');
+        echo form_dropdown('tp_cadastro', $tpcadastro); 	
+        ?>
+    </p>
+    <div id="pessoa_juridica" style="display:none">
+        <p>
+            <?php echo form_label('Nome fantasia', 'nome_fantasia'); ?>
+            <?php echo form_input('nome_fantasia', set_value('nome_fantasia'));  ?>
+            <?php echo form_error('nome_fantasia',
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('Razão social', 'razao_social'); ?>
+            <?php echo form_input('razao_social', set_value('razao_social'));  ?>
+            <?php echo form_error('razao_social',
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('CNPJ', 'cnpj'); ?>
+            <?php echo form_input('cnpj', set_value('cnpj'));  ?>
+            <?php echo form_error('cnpj', 
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('IE', 'ie'); ?>
+            <?php echo form_input('ie', set_value('ie'));  ?>
+            <?php echo form_error('ie', 
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+    </div>
+    <div id="pessoa_fisica" style="display:block">
+    	<p>
+    	<h3 id="contato_empresa" style="display:none">Pessoa responsável</h3>
+        </p>
+        <p>
+            <?php echo form_label('Nome completo', 'nome_completo'); ?>
+            <?php echo form_input('nome_completo', set_value('nome_completo'));  ?>
+            <?php echo form_error('nome_completo',
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('Tratamento', 'tratamento'); ?>
+            <?php 
+            $tratamentos = array('Sr'=>'Senhor','Sra'=>'Senhora','Srta'=>'Senhorita','Dr'=>'Doutor', 'Dra'=>'Doutora');
+            echo form_dropdown('tratamento', $tratamentos); 									
+            ?>
+        </p>        
+        <p>
+            <?php echo form_label('Sexo', 'sexo'); ?>
+            <?php 
+            $sexo = array('M'=>'Masculino', 'F'=>'Feminino');
+            echo form_dropdown('sexo', $sexo); 					
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('Data de Nascimento', 'dtnasc'); ?>
+            <?php echo form_input('dtnasc');  ?>
+            <?php echo form_error('dtnasc', 
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+        
+        
+        
+         <?php
+        $cpf = array(
+					'name'=>'cpf',
+					'id'=>'cpf',
+					'value'=>set_value('cpf'),
+					'size'=>'30',
+					'style'=>'border:1px solid #9d9d9d; padding:6px 6px 6px 6px; background-color:rgba(127, 255, 212, 0); color:#4a0523; margin-top:0px; font-size:15px; width:345px; height:40px;');
+		?>
+        
+        
+            <?php echo form_label('CPF', 'cpf'); ?>
+            <?php echo form_input('cpf', set_value('cpf'));  ?>
+            <?php echo form_error('cpf', 
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('RG', 'rg'); ?>
+            <?php echo form_input('rg', set_value('rg'));  ?>
+            <?php echo form_error('rg', 
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>
+        <p>
+            <?php echo form_label('Profissão', 'profissao'); ?>
+            <?php echo form_input('profissao', set_value('profissao'));  ?>
+            <?php echo form_error('profissao',
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>        
+        <p>
+            <?php echo form_label('Função na empresa', 'funcao_empresa'); ?>
+            <?php echo form_input('funcao_empresa', set_value('funcao_empresa'));  ?>
+            <?php echo form_error('funcao_empresa',
+                                  $this->config->item('err_msg_style'), 
+                                  $this->config->item('msg_style_end'));
+            ?>
+        </p>        
+    </div>
+    
+    <!--<a href="#endereco" title="Settings">Próximo</a>-->
+    <br class="quebra"/>
+    
+    <button type="button"><a href="#endereco" title="Settings"><img src="http://www.sicove.com.br/files/backend/images/icons/fugue/navigation.png" width="16" height="16"><span style="color:#fff!important; margin-left:5px; margin-top:15px;">Próximo</span></a></button>
+    
+</div>    
+<div id="endereco" class="tabs-content">
+    <p>
+        <?php echo form_label('Tipo', 'tipo'); ?>
+        <?php echo form_dropdown('tipo', $tipos); ?>
+        <?php echo form_error('tipo', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end'));
+        ?>
+    </p>
+    <p>
+        <?php echo form_label('CEP', 'cep'); ?>
+		<?php
+			$cep = array(
+						'name'=>'cep',
+						'id'=>'cep',
+						'value'=>set_value('cep'));
+        ?>
+        <?php echo form_input($cep); ?>
+        <?php echo form_error('cep', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end'));
+        ?>
+        <a href="http://www.buscacep.correios.com.br/" target="_blank">N&atilde;o sei o cep</a>
+        <div id="msg"></div>  
+    </p>
+    <p>
+        <?php echo form_label('Endereço', 'logradouro'); ?>
+		<?php
+			$logradouro = array(
+							'name'=>'logradouro',
+							'id'=>'logradouro',
+							'disabled'=>'disabled',
+							'value'=>set_value('logradouro'));
+        ?>
+        <?php echo form_input($logradouro); ?>
+        <?php echo form_error('logradouro', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('N&uacute;mero', 'numero'); ?>
+		<?php
+			$numero = array(
+						'name'=>'numero',
+						'id'=>'numero',
+						'value'=>set_value('numero'));
+        ?>
+        <?php echo form_input($numero); ?>
+        <?php echo form_error('numero', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Complemento', 'complemento'); ?>
+        <?php echo form_input('complemento', set_value('complemento')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Bairro', 'bairro'); ?>
+		<?php
+			$bairro = array(
+						'name'=>'bairro',
+						'id'=>'bairro',
+						'disabled'=>'disabled',
+						'value'=>set_value('bairro'));
+        ?>
+        <?php echo form_input($bairro); ?>
+        <?php echo form_error('bairro', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Cidade', 'cidade'); ?>
+		<?php
+			$cidade = array(
+						'name'=>'cidade',
+						'id'=>'cidade',
+						'disabled'=>'disabled',
+						'value'=>set_value('cidade'));
+        ?>
+        <?php echo form_input($cidade); ?>
+        <?php echo form_error('cidade', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Estado', 'estado'); ?>
+		<?php
+			$estado = array(
+						'name'=>'estado',
+						'id'=>'estado',
+						'disabled'=>'disabled',
+						'value'=>set_value('estado'));
+        ?>
+        <?php echo form_input($estado); ?>
+        <?php echo form_error('estado', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+  <!--  <a href="#informacoes-contato" title="Settings">Próximo</a>-->
+    
+        <br class="quebra"/>
+    
+    <button type="button"><a href="#informacoes-contato" title="Settings"><img src="http://www.sicove.com.br/files/backend/images/icons/fugue/navigation.png" width="16" height="16"><span style="color:#fff!important; margin-left:5px; margin-top:15px;">Próximo</span></a></button>
+    
+</div>
+<div id="informacoes-contato" class="tabs-content">
+    <p>
+        <?php echo form_label('Email', 'email'); ?>
+        <?php echo form_input('email', set_value('email')); ?>
+        <?php echo form_error('email', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Telefone', 'numtel'); ?>
+        <?php echo form_input('numtel', set_value('numtel')); ?>
+        <?php echo form_error('numtel', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+        <?php echo form_dropdown('tp_telefone', $tp_tel); ?>
+    </p>
+  <!--  <a href="#informacoes-conta" title="Settings">Próximo</a>-->
+    
+        <br class="quebra"/>
+    
+    <button type="button"><a href="#informacoes-conta" title="Settings"><img src="http://www.sicove.com.br/files/backend/images/icons/fugue/navigation.png" width="16" height="16"><span style="color:#fff!important; margin-left:5px; margin-top:15px;">Próximo</span></a></button>
+    
+</div>
+<div id="informacoes-conta" class="tabs-content">
+    <p>
+        <?php echo form_label('Login', 'login'); ?>
+        <?php echo form_input('login', set_value('login')); ?>
+        <?php echo form_error('login', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Senha', 'senha'); ?>
+        <?php echo form_password('senha'); ?>
+        <?php echo form_error('senha', 
+                              $this->config->item('err_msg_style'), 
+                              $this->config->item('msg_style_end')); ?>
+    </p>
+    <p>
+        <?php echo form_label('Digite a senha novamente', 'conf_senha'); ?>
+        <?php echo form_password('conf_senha'); ?>
+    </p>
+    
+    <div class="float-left" id="save-button"> 
+			<button name="enviar" type="submit" id="enviar"><img src="http://www.sicove.com.br/files/backend/images/icons/fugue/tick-circle.png"> Salvar</button>            
+		</div>
+    
+    
+</div>
+</div>
+<?php echo form_close(); ?>
+
+
+
+
+
+    <script type="text/javascript">
+$(document).ready(function(e) {
+	$( "#abas_cadastro" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+	$( "#abas_cadastro li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" ); 
+	$( "#enviar" ).removeClass( "ui-btn_hidden" );
+	$("#cpf").mask("999.999.999-99");
+	$("#cnpj").mask("99.999.999/9999-99");
+	$("#dtnasc").mask("99/99/9999");
+	$("#cep").mask("99999-999");
+});
+
+</script>
+
+
+
+
+</div>
+</div>
+</section>
+
