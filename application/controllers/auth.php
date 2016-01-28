@@ -8,7 +8,7 @@ class Auth extends CI_Controller
 		$this->load->library('general');
         $data['backend'] = "associado";
         $this->load->vars($data);
-        $this->_container = "backend/container";
+        $this->_container = "container.tpl";
 	}
 	
 	function index()
@@ -16,22 +16,6 @@ class Auth extends CI_Controller
 		$this->login();
 	}
 
-    function token(){
-        $credentials = $this->__get_credentials();
-        OAuth2\Autoloader::register();
-
-        $server = new OAuth2\Server();
-    }
-
-    function __get_credentials(){
-        $credentials['grant_type'] = 'password';
-        $credentials['client_id'] = $this->input->post('application');
-        $credentials['client_secret'] = $this->input->post('app_pass');
-        $credentials['username'] = $this->input->post('username');
-        $credentials['password'] = $this->input->post('password');
-        return $credentials;
-    }
-	
 	/* Callback function */
 	
 	function email_check()
@@ -135,9 +119,8 @@ class Auth extends CI_Controller
 					// Load login page view
                     $data['titulo'] = "Login";
                     $data['pagina'] = $this->dx_auth->login_view;
-					$data['page_login'] = TRUE;
-                    $this->load->vars($data);
-					$this->load->view($this->_container);
+					$this->smarty->assign("page_login", TRUE);
+					$this->smarty->view($this->_container, $data );
 				}
 			}
 		}
