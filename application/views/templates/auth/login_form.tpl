@@ -72,8 +72,6 @@
         <div class="login-content">
 
             <div class="form-login-error">
-                <h3>Invalid login</h3>
-                <p>Enter <strong>demo</strong>/<strong>demo</strong> as login and password.</p>
             </div>
             {php} echo form_open(); {/php}
 
