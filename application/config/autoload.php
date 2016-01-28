@@ -80,7 +80,7 @@ $autoload['helper'] = array('form', 'url', 'date');
 |
 */
 
-$autoload['config'] = array('sicove');
+$autoload['config'] = array('recargagold');
 
 
 /*
