@@ -11,16 +11,6 @@ $nav = ' in';
 <!-- fim DASHBOARD-->
 
 
-<!-- inicio REVISTA PILLARES -->
-<li>
-    
-    <a href="http://www.revistapillares.com.br/" target="_blank">
-        <i class="fa fa-book"></i> <span>Revista Pillares</span>
-        
-    </a>
-</li>
-<!-- fim REVISTA PILLARES-->
-
 <!-- inicio REDE -->
 <li class="panel"><a href="javascript:;" data-parent="#side"
                      data-toggle="collapse" class="accordion-toggle"
@@ -32,16 +22,6 @@ $nav = ' in';
                 href="<?php echo site_url('escritorio-virtual/rede/binario/'.$this->dx_auth->get_associado_id()); ?>">
                 <i class="fa fa-angle-double-right"></i> Binário
             </a></li>
-        <li><a<?php echo (preg_match("|^escritorio-virtual/rede/linear.*$|", $ci_uri) > 0)? $attr: ''; ?>
-                href="<?php echo site_url('escritorio-virtual/rede/linear'); ?>">
-                <i class="fa fa-angle-double-right"></i> Linear
-            </a></li>
-
-        <li><a<?php echo (preg_match("|^escritorio-virtual/rede/unilevel.*$|", $ci_uri) > 0)? $attr: ''; ?>
-                href="<?php echo site_url('escritorio-virtual/rede/unilevel/'.$this->dx_auth->get_associado_id()); ?>">
-                <i class="fa fa-angle-double-right"></i> Unilevel
-            </a></li>
-
     </ul></li>
 <!-- fim REDE -->
 

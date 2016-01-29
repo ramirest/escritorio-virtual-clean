@@ -62,14 +62,15 @@ $(document).ready(function(){
 	
 $("#associado_txt").blur(function(){
 	var cct = $('input[name=csrf_s]').val();
+    var base_url = window.location.origin;
 	$.ajax({
 		type:"POST",
 		data:"usuario="+$(this).val()+"&csrf_s="+cct,
-		url:"http://escritorio.redeseitec.com.br/callback/associado_check",
+		url:base_url+"/recargagold/callback/associado_check",
 		success:function(msg){
 			$("#response_associado").html(msg);
 			var aid = $("#aid").val();
-			var action = "http://escritorio.redeseitec.com.br/escritorio-virtual/pedidos/gerar_credito/"+aid;
+			var action = base_url+"/recargagold/escritorio-virtual/pedidos/gerar_credito/"+aid;
 			$("#gera-credito").attr("action", action);
 			if($("#response_associado p").hasClass("error")){
 				$("#associado_txt").val("");
@@ -82,9 +83,10 @@ $("#associado_txt").blur(function(){
 });
 
 $("#response_novos_cadastros").html(function(){
+    var base_url = window.location.origin;
 	var cct = $('input[name=csrf_s]').val();
 	$.ajax({
-		url:"http://escritorio.redeseitec.com.br/callback/get_novos_cadastros",
+		url:base_url+"/recargagold/callback/get_novos_cadastros",
 		success:function(msg){
 			$("#response_novos_cadastros").html("");
 			$("#response_novos_cadastros").html(msg);
@@ -93,7 +95,7 @@ $("#response_novos_cadastros").html(function(){
 				$.ajax({
 					type:"POST",
 					data:"novos_cadastros="+$(this).val()+"&csrf_s="+cct,
-					url:"http://escritorio.redeseitec.com.br/callback/set_novos_cadastros",
+					url:base_url+"/recargagold/callback/set_novos_cadastros",
 					success:function(msg){
 						$("#response_novos_cadastros").html("");
 						$("#response_novos_cadastros").html(msg);
@@ -197,6 +199,7 @@ jQuery('form').validate({
 			return $(this).val() == $("#senha").val();
         },
 		cep : function(){
+            var base_url = window.location.origin;
             var status = true;
             var cct = $('input[name=csrf_s]').val();
             var cep_field = $(this).val();
@@ -209,7 +212,7 @@ jQuery('form').validate({
                 status = false;
             }
             else {
-            $.getJSON("http://escritorio.redeseitec.com.br/callback/buscacep2", {cep: cep_field, csrf_s:cct})
+            $.getJSON(base_url+"/recargagold/callback/buscacep2", {cep: cep_field, csrf_s:cct})
                 .always(function(json){
                     var dados = $.parseJSON($.trim(json.responseText));
                     if(dados == false){
@@ -250,9 +253,10 @@ jQuery('form').validate({
 			return status == true;
         },
         cpf : function(){
+            var base_url = window.location.origin;
             var status = true;
             var cct = $('input[name=csrf_s]').val();
-            $.post("http://escritorio.redeseitec.com.br/callback/cpf_check", {csrf_s:cct, cpf: $(this).val()})
+            $.post(base_url+"/recargagold/callback/cpf_check", {csrf_s:cct, cpf: $(this).val()})
                 .always(function(msg){
                     $("#cpf-description").html(msg);
                     if($("#cpf-description p").hasClass("alert-danger")){
@@ -266,9 +270,10 @@ jQuery('form').validate({
                 return status == true;
         },
         patrocinador : function(){
+            var base_url = window.location.origin;
             var cct = $('input[name=csrf_s]').val();
             var status = true;
-            $.post("http://escritorio.redeseitec.com.br/callback/patrocinador_check", {csrf_s:cct, usuario: $(this).val()})
+            $.post(base_url+"/recargagold/callback/patrocinador_check", {csrf_s:cct, usuario: $(this).val()})
                 .always(function(msg){
                     $("#patrocinador-description").html(msg);
                     if($("#patrocinador-description p").hasClass("alert-danger")){
@@ -286,9 +291,10 @@ jQuery('form').validate({
             return status === true;
         },
         email : function(){
+            var base_url = window.location.origin;
             var status = true;
             var cct = $('input[name=csrf_s]').val();
-            $.post("http://escritorio.redeseitec.com.br/auth/email_check", {csrf_s:cct, email: $(this).val()})
+            $.post(base_url+"/recargagold/auth/email_check", {csrf_s:cct, email: $(this).val()})
                 .always(function(msg){
                     $("#email-description").html(msg);
                     if($("#email-description p").hasClass("alert-danger")){
@@ -324,9 +330,10 @@ jQuery('form').validate({
             return status == true;
         },
         login : function(){
+            var base_url = window.location.origin;
             var status = true;
             var cct = $('input[name=csrf_s]').val();
-            $.post("http://escritorio.redeseitec.com.br/callback/login_check", {csrf_s:cct, login: $(this).val()})
+            $.post(base_url+"/recargagold/callback/login_check", {csrf_s:cct, login: $(this).val()})
                 .always(function(msg){
                     $("#login-description").html(msg);
                     if($("#login-description p").hasClass("alert-danger")){

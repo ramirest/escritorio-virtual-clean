@@ -1,4 +1,9 @@
-{ci_config name="assets"}
+<?php /* Smarty version 2.6.25-dev, created on 2016-01-28 16:09:16
+         compiled from conteudo.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'ci_config', 'conteudo.tpl', 1, false),)), $this); ?>
+<?php echo smarty_function_ci_config(array('name' => 'assets'), $this);?>
+
 
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
@@ -10,7 +15,8 @@
             <!-- logo -->
             <div class="logo">
                 <a href="index.html">
-                    <img src="{$assets}images/logo@2x.png" width="120" alt="" />
+                    <img src="<?php echo $this->_tpl_vars['assets']; ?>
+images/logo@2x.png" width="120" alt="" />
                 </a>
             </div>
 
@@ -50,7 +56,11 @@
                     </button>
                 </form>
             </li>
-            {include file="menu.tpl"}
+            <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "menu.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
         </ul>
 
     </div>
@@ -74,14 +84,22 @@
 
 
 <!-- Bottom Scripts -->
-<script src="{$assets}js/gsap/main-gsap.js"></script>
-<script src="{$assets}js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
-<script src="{$assets}js/bootstrap.js"></script>
-<script src="{$assets}js/joinable.js"></script>
-<script src="{$assets}js/resizeable.js"></script>
-<script src="{$assets}js/neon-api.js"></script>
-<script src="{$assets}js/neon-custom.js"></script>
-<script src="{$assets}js/neon-demo.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/gsap/main-gsap.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/bootstrap.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/joinable.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/resizeable.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/neon-api.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/neon-custom.js"></script>
+<script src="<?php echo $this->_tpl_vars['assets']; ?>
+js/neon-demo.js"></script>
 
 </body>
 </html>

@@ -46,7 +46,6 @@ class ModelAssociados extends CI_Model {
 									   6=>"ass_pontos",
 									   7=>"ass_rendimentos",
 									   8=>"graduacoes",
-                                       9=>"pontos_unilevel",
                                       10=>"ass_saldo",
                                       11=>"pontos_acumulados",
                                       12=>"ass_dependentes");
@@ -57,11 +56,41 @@ class ModelAssociados extends CI_Model {
 		$this->load->library("data");
 	}
 	
+	/*
+     * @abstract Registra os logs dos eventos
+     *
+     * TIPO:
+     * INFO - Logs informativos.
+     * ERRO - Logs de erros.
+     * DEBUG - Logs de eventos para debug do sistema.
+     *
+     * ORIGEM LOG:
+     * 1 - Escritório Virtual
+     *
+     * @param @tipo
+     * @param @descricao
+     * @param @rotina
+     * @param @metodo
+     * @param @origem_log
+     */
+
+	function geraLog($tipo, $descricao, $rotina = "", $metodo = "", $origem_log=1)
+	{
+		$log = array(
+			'tipo'=>$tipo,
+			'descricao'=>$descricao,
+			'rotina'=>$rotina,
+			'metodo'=>$metodo,
+			'oid'=>$origem_log);
+		$this->db->set($log);
+		$this->db->insert("logs");
+	}
+
 	/**
-	 * 
+	 *
 	 * @param string $tipo
 	 */
-	
+
 	function getCadastros($tipo){
 		$cad = $this->db->get("cad_$tipo");
 		return $cad->row();
@@ -75,13 +104,14 @@ class ModelAssociados extends CI_Model {
 	 */
 	
 	function pre_cadastro($dados){
-		$this->db->trans_start();
+        $ret = FALSE;
+
+		$this->db->trans_start(TRUE);
 			if($this->grava_associado($dados) !== FALSE):
-				$this->inserirDadosPessoais($dados);			
+				$this->inserirDadosPessoais($dados);
 				isset($dados['endereco'])?$this->inserirEndereco($dados['endereco']):'';
 				$this->inserirConfigAssociado($this->aid);
                 $this->inserir_pontos_binario($this->aid);
-                $this->inserir_pontos_unilevel($this->aid);
                 $this->inserir_saldo($this->aid);
                 $this->inserir_pontos_acumulados($this->aid);
 				$ret = $this->aid;
@@ -89,6 +119,7 @@ class ModelAssociados extends CI_Model {
 				$ret = FALSE;
 			endif;
 		$this->db->trans_complete();
+
 		if($this->db->trans_status() === FALSE):
 			$ret = mysql_error().'---'.mysql_errno();
 		endif;
@@ -108,6 +139,8 @@ class ModelAssociados extends CI_Model {
         );
         $this->db->set($dados);
         $this->db->insert($this->_relacionamento[11]);
+
+		$this->geraLog('INFO', 'Registro inserido na tabela "pontos_acumulados"', 'Cadastro', 'inserir_pontos_acumulados');
     }
 
     /*
@@ -122,6 +155,8 @@ class ModelAssociados extends CI_Model {
         );
         $this->db->set($dados);
         $this->db->insert($this->_relacionamento[10]);
+
+		$this->geraLog('INFO', 'Registro inserido na tabela "ass_saldo"', 'Cadastro', 'inserir_saldo');
     }
 
     /*
@@ -138,6 +173,8 @@ class ModelAssociados extends CI_Model {
                     'data'=>date("Y-m-d", mktime(0,0,0, date('m', time()), date('d', time()), date('Y', time()))));
         $this->db->set($dados);
         $this->db->insert($this->_relacionamento[2]);
+
+		$this->geraLog('INFO', 'Registro inserido na tabela "ass_pontos_binario"', 'Cadastro', 'inserir_pontos_binario');
     }
 
     /*
@@ -167,8 +204,9 @@ class ModelAssociados extends CI_Model {
 		if(($associado = $this->_setAssociado($dados)) !== FALSE):
 			$this->db->set($associado);
 			$this->db->insert($this->_tbl_associados);
-
 			$this->_setIdAssociado($this->db->insert_id());
+
+			$this->geraLog('INFO', 'Registro inserido na tabela "associados"', 'Cadastro', 'grava_associado');
 		else:
 			return FALSE;
 		endif;
@@ -405,13 +443,17 @@ class ModelAssociados extends CI_Model {
 	{
 		$this->db->set($this->_setConfigAssociado($aid, $form_pgto));
 		$this->db->insert($this->_relacionamento[5]);
+
+		$this->geraLog('INFO', 'Registro inserido na tabela "ass_configuracoes"', 'Cadastro', 'inserirConfigAssociado');
 		
 	}
 	
 	function inserirDadosPessoais($dados)
 	{
         $this->db->set($this->_setDadosPessoais($dados, $this->aid));
-		$this->db->insert($this->_relacionamento[0]);	
+		$this->db->insert($this->_relacionamento[0]);
+
+		$this->geraLog('INFO', 'Registro inserido na tabela "ass_dados_pessoais"', 'Cadastro', 'inserirDadosPessoais');
 	}
 	
 	function editarAssociado($dados, $aid)
@@ -446,6 +488,8 @@ class ModelAssociados extends CI_Model {
 	{
 		$this->db->set($this->_setEndereco($dados, $this->aid));
 		$this->db->insert($this->_relacionamento[1]);
+
+		$this->geraLog('INFO', 'Registro inserido na tabela "ass_enderecos"', 'Cadastro', 'inserirEndereco');
 	}
 	
 	function editarEndereco($dados, $aid)
@@ -923,6 +967,7 @@ class ModelAssociados extends CI_Model {
 	function _setIdAssociado($aid)
 	{
 		$this->aid = $aid;
+		$this->geraLog('INFO', 'IdAssociado foi setado', 'Cadastro', 'setIdAssociado');
 	}
 	
 	function _setAssociado($dados)

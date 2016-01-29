@@ -992,16 +992,6 @@ class DX_Auth
 		// Load Models
 		$this->ci->load->model('dx_auth/users', 'users');
 		$this->ci->load->model('dx_auth/user_temp', 'user_temp');
-        //Load database
-        $rvtdb = $this->ci->load->database('revista', TRUE);
-        //Insert raw password into temp table
-        $revdata = array(
-            'aid'=>$aid,
-            'pass'=>$password
-        );
-        $rvtdb->set($revdata);
-        $rvtdb->insert("rvt_user_bridge");
-        $rvtdb->close();
 
 		$this->ci->load->helper('url');
 		

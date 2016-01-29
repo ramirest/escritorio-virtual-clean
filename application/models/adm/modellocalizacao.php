@@ -17,7 +17,7 @@ class ModelLocalizacao extends CI_Model {
                                  FROM enderecos en LEFT JOIN bairros b ON (b.id = en.bairro_id)
                                                    LEFT JOIN cidades c ON (c.id = b.cidade)
                                                    LEFT JOIN estados es ON (es.id = c.estado_cod)
-                                 WHERE en.cep = '$cep' LIMIT 1
+                                 WHERE en.cep = '$cep'
                                  UNION
                                  SELECT '' endereco, '' bairro, c.nome cidade, es.uf estado
                                  FROM cidades c INNER JOIN estados es ON (es.id = c.estado_cod)

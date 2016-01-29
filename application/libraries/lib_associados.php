@@ -45,8 +45,9 @@ class Lib_associados {
         $form = $this->_get_form_values();
         //efetua o cadastro do associado
         if(($id = $this->ci->mass->pre_cadastro($form)) !== FALSE):
-          
-		  $this->ci->session->set_userdata("aid",$id);
+
+			$this->ci->mass->geraLog('INFO', 'Gerando dados de usuário na sessão', 'Cadastro', 'pre_cadastro');
+			$this->ci->session->set_userdata("aid",$id);
 		  //cria o associado de acesso ao sistema e envia um email de confirmacao
           $this->ci->dx_auth->register($form['infoconta']['login'], $form['infoconta']['senha'], $form['infocontato']['email'], $id);		  
 		  
@@ -73,15 +74,9 @@ class Lib_associados {
 				'Nome: '.$form['dados_pessoais']['nome_completo']."<br>".
 				'ID: '.$id."<br>".
 				'Login: '.$form['infoconta']['login']."<br>".
-				'Email: '.$form['infocontato']['email']."<br>".
-				'Senha: Por questões de segurança não exibiremos sua senha, 
-				guarde-a em local seguro e utilize-a juntamente com seu login ou email para acessar o sistema. <br><br>
-				Como um cliente SICOVE você tem inúmeros benefícios ao comprar produtos em nossa loja virtual <br>
-				acumulando pontos, de suas compras e das pessoas indicadas por você, que poderão ser trocados por outros produtos <br>
-				ao atingir a quantidade mínima do saldo. <br>
-                Mas se você quer ainda mais benefícios, escolha um dos planos abaixo e faça parte deste grande negócio.<br><br>
-				Seja bem vindo ao SICOVE!<br><br>'.
-				'<strong>Equipe SICOVE</strong>'.
+				'Email: '.$form['infocontato']['email']."<br><br>".
+				'Seja bem vindo ao '. NOME_EMPRESA .'!<br><br>'.
+				'<strong>Equipe '. NOME_EMPRESA .'</strong>'.
 				$this->ci->config->item('msg_style_end');
 				
 								

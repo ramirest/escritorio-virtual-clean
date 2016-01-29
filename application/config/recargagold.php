@@ -96,6 +96,7 @@ $config['taxa_saque'] = 10;
 #############################
 $config['empresa'] = NOME_EMPRESA;
 $config['email_suporte'] = 'suporte@recargagold.com';
+$config['url_contrato'] = 'http://www.recargagold.com/contrato/contrato.html';
  
 $config['nome_site'] = "";
 

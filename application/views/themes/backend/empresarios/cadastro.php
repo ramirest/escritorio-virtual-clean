@@ -410,7 +410,7 @@ echo form_error('login',
     </div>
 
     <div class="col-sm-12" style="font-size:20px">
-        Ao clicar em salvar, confirmo ter lido e concordado com todos os <a style="color:red;" href="http://www.sicove.com.br/contrato/contrato.htm" target="_blank">termos do contrato.</a>
+        Ao clicar em salvar, confirmo ter lido e concordado com todos os <a style="color:red;" href="<?php echo $this->config->item('url_contrato') ?>" target="_blank">termos do contrato.</a>
     </div>
 
     <div class="col-sm-offset-10 col-sm-1" id="save-button" style="margin-top: 11px;">
