@@ -229,36 +229,16 @@ HTML;
         endif;
     }
 
-    function recaptcha_check()
-    {
-        if($this->dx_auth->is_logged_in()):
-            if($this->dx_auth->is_role(array("admin","root"))):
-                $result = $this->dx_auth->is_recaptcha_match();
-                if ( ! $result)
-                {
-                    $this->form_validation->set_message('recaptcha_check', 'O c&oacute;digo informado n&atilde;o &eacute; o mesmo da imagem. Tente novamente.');
-                }
-
-                return $result;
-            endif;
-        else:
-            $this->general->redirect('login');
-        endif;
-    }
-
     function escolha_plano($msg = ""){
         if($this->dx_auth->is_logged_in()):
 
             $dados['titulo'] = "Planos de Assinatura";
             $dados['pagina'] = "themes/backend/empresarios/escolha_plano";
             $dados['page_js_foot'] = 'funcoes';
-            if($msg == md5('sem_cadernos'))
-                $msg = "Por favor escolha os cadernos da revista online que deseja acessar";
 
             $dados['msg'] = $msg;
             $this->session->set_userdata("aid", $this->dx_auth->get_associado_id());
             $dados['planos'] = $this->mplanos->getPlano();
-            $dados['cadernos'] = $this->mass->getCaderno();
 
             $this->load->vars($dados);
             $this->load->view($this->_container);
@@ -267,31 +247,13 @@ HTML;
         endif;
     }
 
-
-
-
     function salvar_escolha_plano()
     {
-
-        $ar = $this->input->post('cid');
-        //verifica se o usuário esqueceu de escolher os cadernos
-        if(empty($ar) && ($this->input->post('pid') != '52') && ($this->input->post('pid') != '53')):
-            //cadernos não escolhidos nos planos de empresários
-            $msg = md5('sem_cadernos');
-            $this->general->redirect("escritorio-virtual/empresarios/escolha_plano/$msg");
-        endif;
 
         $aid = $this->input->post('aid');
         //verifica se por algum motivo obscuro o código do associado não foi enviado
         if(empty($aid))
             $this->general->redirect('escritorio-virtual/empresarios/escolha_plano');
-
-        if(($this->input->post('pid') != '52') && ($this->input->post('pid') != '53')):
-            for($i=0;$i<count($ar);$i++)
-            {
-                mysql_query(" INSERT INTO `ass_caderno` (`aid`, `cid`, `status`) VALUES ('".$aid."', '".$ar[$i]."', 'Inativo') ") or die (mysql_error());
-            }
-        endif;
 
         $pedido['aid'] = $aid;
         $pedido['dtpedido'] = date("Y-m-d H:i:s");
@@ -508,7 +470,6 @@ HTML;
         endif;
     }
 
-
     function alterar_senha()
     {
         // Verifica se o usuário está logado
@@ -547,6 +508,22 @@ HTML;
         }
     }
 
+    function recaptcha_check()
+    {
+        if($this->dx_auth->is_logged_in()):
+            if($this->dx_auth->is_role(array("admin","root"))):
+                $result = $this->dx_auth->is_recaptcha_match();
+                if ( ! $result)
+                {
+                    $this->form_validation->set_message('recaptcha_check', 'O c&oacute;digo informado n&atilde;o &eacute; o mesmo da imagem. Tente novamente.');
+                }
+
+                return $result;
+            endif;
+        else:
+            $this->general->redirect('login');
+        endif;
+    }
 
 }
 

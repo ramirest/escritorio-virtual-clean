@@ -121,7 +121,7 @@ class ModelAssociados extends CI_Model {
 		$this->db->trans_complete();
 
 		if($this->db->trans_status() === FALSE):
-			$ret = mysql_error().'---'.mysql_errno();
+			$ret = mysqli_error().'---'.mysqli_errno();
 		endif;
 		
 		return $ret;
@@ -212,26 +212,6 @@ class ModelAssociados extends CI_Model {
 		endif;
 	}
 	
-	function getCaderno($key = '', $value = '')
-	{
-		$this->db->select("*");
-		$this->db->from("cadernos");
-		
-		if($key != ''):
-			$this->db->where($key, $value);
-		endif;
-                $this->db->order_by('cid', 'asc');
-		
-		$cadernos = $this->db->get();
-		
-		if($cadernos->num_rows() > 0):
-			return $cadernos;			
-		else:
-			return FALSE;
-		endif;
-	}
-	
-	
 	/**
 	 * 
 	 * @param array $pedido
@@ -261,7 +241,6 @@ class ModelAssociados extends CI_Model {
 			
 			$fatura['descricao']= "Plano de Adesão - A Vista" ;
 			$fatura['gera_bonus']= "S" ; // Gera bonus transação financeira
-			$fatura['pontos_unilevel'] = $plano->pontos_unilevel;
 			$fatura['pontos_binario'] = $plano->pontos_binario;
             $fatura['num_parcela'] = '1/1';
 			$fatura['status'] = "Pendente";
@@ -287,8 +266,7 @@ class ModelAssociados extends CI_Model {
 			
 			$fatura['descricao']= "Plano de Adesão - Entrada" ;
 			$fatura['gera_bonus']= "S" ; // Gera bonus transação financeira
-			$fatura['pontos_unilevel'] = $plano->pontos_unilevel_entrada;
-			$fatura['pontos_binario'] = $plano->pontos_binario_entrada;  
+			$fatura['pontos_binario'] = $plano->pontos_binario_entrada;
 			$fatura['status'] = "Pendente";
 			
 			$this->db->set($fatura);
@@ -311,8 +289,7 @@ class ModelAssociados extends CI_Model {
 				
 				$fatura['descricao']= "Plano de Adesão" ;
 				$fatura['gera_bonus']= "S" ; // Gera bonus transação financeira
-				$fatura['pontos_unilevel'] = $plano->pontos_unilevel_parcela;
-				$fatura['pontos_binario'] = $plano->pontos_binario_parcela;  
+				$fatura['pontos_binario'] = $plano->pontos_binario_parcela;
 				$fatura['status'] = "Pendente";
 				
 				$this->db->set($fatura);
