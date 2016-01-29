@@ -19,9 +19,7 @@
 						<th>Nome do plano</th>
 						<th>Valor</th>
 						<th>Ganhos no binário</th>
-						<th>Pontos no unilevel</th>
 						<th>Pontos no binário</th>
-                        <th>Cadernos</th>
 					</tr>
 				</thead>
 				<tbody>                			
@@ -41,9 +39,7 @@ if(!isset($plano->pid)):
 					<td><?php echo anchor($this->uri->uri_string().'/'.$p->pid, $p->nmplano); ?></td>
 					<td><?php echo 'R$ '.$p->valor_plano; ?></td>
 					<td><?php echo  $p->percentual_ganho.' %'; ?></td>
-					<td><?php echo $p->pontos_unilevel; ?></td>
 					<td><?php echo $p->pontos_binario; ?></td>
-                    <td><?php echo $p->qtde_cadernos; ?></td>
 				</tr>
 <?php							  
 		endforeach;
@@ -125,38 +121,6 @@ endif;
 </div>
 <div class="row">
     <div class="form-group col-sm-4">
-        <?php echo form_label('Pontos do plano no unilevel', 'pontos_unilevel'); ?>
-        <div class="input-group">
-        <?php echo form_input(array('name'=>'pontos_unilevel',
-                                    'id'=>'pontos_unilevel',
-                                    'class'=>'form-control'), isset($plano->pontos_unilevel)?$plano->pontos_unilevel:'');
-        ?>
-        <span class="input-group-addon">%</span>
-        </div>
-    </div>
-    <div class="form-group col-sm-4">
-        <?php echo form_label('Pontos do plano no unilevel - Entrada', 'pontos_unilevel_entrada'); ?>
-        <div class="input-group">
-            <?php echo form_input(array('name'=>'pontos_unilevel_entrada',
-                'id'=>'pontos_unilevel_entrada',
-                'class'=>'form-control'), isset($plano->pontos_unilevel_entrada)?$plano->pontos_unilevel_entrada:'');
-            ?>
-            <span class="input-group-addon">%</span>
-        </div>
-    </div>
-    <div class="form-group col-sm-4">
-        <?php echo form_label('Pontos do plano no unilevel - Parcela', 'pontos_unilevel_parcela'); ?>
-        <div class="input-group">
-            <?php echo form_input(array('name'=>'pontos_unilevel_parcela',
-                'id'=>'pontos_unilevel_parcela',
-                'class'=>'form-control'), isset($plano->pontos_unilevel_parcela)?$plano->pontos_unilevel_parcela:'');
-            ?>
-            <span class="input-group-addon">%</span>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-sm-4">
         <?php echo form_label('Pontos do plano no binário', 'pontos_binario'); ?>
         <div class="input-group">
         <?php echo form_input(array('name'=>'pontos_binario',
@@ -208,16 +172,6 @@ endif;
 	?>
 	</div>
 </div>
-    <div class="form-group col-sm-4">
-        <?php echo form_label('Quantidade de cadernos', 'qtde_cadernos'); ?>
-        <div class="input-group">
-            <span class="input-group-addon">R$</span>
-            <?php echo form_input(array('name'=>'qtde_cadernos',
-                'id'=>'qtde_cadernos',
-                'class'=>'form-control'), isset($plano->qtde_cadernos)?$plano->qtde_cadernos:'');
-            ?>
-        </div>
-    </div>
 </div>
 <?php echo form_button($this->config->item('btn_save')); ?>
 
